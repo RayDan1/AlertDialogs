@@ -27,16 +27,17 @@ public class MainActivity extends AppCompatActivity {
                         MaterialAlertDialogBuilder(MainActivity.this);
                 builder.setTitle("Alert Dialog");
                 builder.setMessage("This is a simple Alert Dialog");
+                builder.setIcon(R.drawable.ic_chat_bubble_black_24dp);
                 builder.setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-
+                        //
                     }
                 });
                 builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-
+                        //
                     }
                 });
                 builder.show();
