@@ -12,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class MainActivity extends AppCompatActivity {
 
     private Button mShowDialogBtn;
+    private CharSequence[]mAlertItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,30 +20,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mShowDialogBtn = findViewById(R.id.show_dialog_btn);
-
+        mAlertItems = new CharSequence[]{
+                "Videos",
+                "Fotos",
+                "Musica",
+                "Todo"
+        };
         mShowDialogBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MaterialAlertDialogBuilder builder = new
                         MaterialAlertDialogBuilder(MainActivity.this);
-                builder.setTitle("Alert Dialog");
-                builder.setMessage("This is a simple Alert Dialog");
-                builder.setIcon(R.drawable.ic_msg);
+                builder.setTitle("Opciones");
+                builder.setSingleChoiceItems(mAlertItems, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
 
                 builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog_dg, null));
-
-                builder.setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        //
-                    }
-                });
-                builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        //
-                    }
-                });
                 builder.show();
             }
         });
