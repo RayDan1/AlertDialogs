@@ -20,14 +20,17 @@ public class MainActivity extends AppCompatActivity {
 
         mShowDialogBtn = findViewById(R.id.show_dialog_btn);
 
-        mShowDialogBtn.setOnClickListener(new View.OnClickListener() {
+        mShowDialogBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MaterialAlertDialogBuilder builder = new
                         MaterialAlertDialogBuilder(MainActivity.this);
                 builder.setTitle("Alert Dialog");
                 builder.setMessage("This is a simple Alert Dialog");
-                builder.setIcon(R.drawable.ic_chat_bubble_black_24dp);
+                builder.setIcon(R.drawable.ic_msg);
+
+                builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog_dg, null));
+
                 builder.setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
