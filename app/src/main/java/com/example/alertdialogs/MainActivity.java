@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mShowDialogBtn;
     private CharSequence[]mAlertItems;
+    private boolean[] mSelectedItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,21 +28,37 @@ public class MainActivity extends AppCompatActivity {
                 "Musica",
                 "Todo"
         };
+        mSelectedItems = new boolean[]{
+                false,
+                true,
+                true
+        };
         mShowDialogBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MaterialAlertDialogBuilder builder = new
                         MaterialAlertDialogBuilder(MainActivity.this);
                 builder.setTitle("Opciones");
-                builder.setSingleChoiceItems(mAlertItems, 0, new DialogInterface.OnClickListener() {
+                builder.setMultiChoiceItems(mAlertItems, mSelectedItems, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Snackbar.make(mShowDialogBtn, "Haz seleccionado" + which, Snackbar.LENGTH_LONG).show();
-                        dialog.dismiss();
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                     }
                 });
 
                 builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog_dg, null));
+
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
                 builder.show();
             }
         });
