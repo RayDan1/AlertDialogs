@@ -2,6 +2,7 @@ package com.example.alertdialogs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
                         MaterialAlertDialogBuilder(MainActivity.this);
                 builder.setTitle("Alert Dialog");
                 builder.setMessage("This is a simple Alert Dialog");
+                builder.setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
+                builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+                    }
+                });
                 builder.show();
             }
         });
