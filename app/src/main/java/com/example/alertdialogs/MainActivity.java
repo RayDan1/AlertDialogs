@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 builder.setTitle("Opciones");
                 builder.setSingleChoiceItems(mAlertItems, 0, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-
+                    public void onClick(DialogInterface dialog, int which) {
+                        Snackbar.make(mShowDialogBtn, "Haz seleccionado" + which, Snackbar.LENGTH_LONG).show();
+                        dialog.dismiss();
                     }
                 });
 
